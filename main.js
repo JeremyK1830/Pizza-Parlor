@@ -54,8 +54,8 @@ document.getElementById("app").innerHTML = `
   <div id="orders"></div>
 </div>`
 
-let ordersHtml = " "
 const displayOrders = () => {
+  let ordersHtml = " "
   const orders = getOrders()
   orders.forEach(order => {
     ordersHtml += 
@@ -91,20 +91,16 @@ document.addEventListener("click", (e) => {
                 toppings: toppingsArray,
                 instructions: specialInstructions
               };
-            //addNewOrder(newOrder)
+            addNewOrder(newOrder)
             console.log(newOrder)
 
             document.addEventListener("stateChanged", event => {
-              let orderhtml =
-              `Crust: ${newOrder.crust}`
-              `Toppings: ${newOrder.toppings}`
-              `Instructions: ${newOrder.instructions}`;
-              ordersHtml += orderHtml
+              displayOrders()
             })
 
-        console.log(crustElement)
-        console.log(toppingsArray)
-        console.log(specialInstructions)
+        // console.log(crustElement)
+        // console.log(toppingsArray)
+        // console.log(specialInstructions)
     }
   });
 
